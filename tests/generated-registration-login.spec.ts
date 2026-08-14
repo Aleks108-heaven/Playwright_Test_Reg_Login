@@ -1,6 +1,6 @@
 // spec: Quick Registration & Login Test
 
-import { test, expect } from '../fixtures';
+import { test, expect } from '../fixtures/test-options';
 
 test.describe('Quick Registration & Login Test', () => {
   test('Register a new user', async ({ page, newUser }) => {
@@ -8,8 +8,8 @@ test.describe('Quick Registration & Login Test', () => {
     await page.locator('[data-test="nav-sign-in"]').click();
     await page.locator('[data-test="register-link"]').click();
 
-    await page.locator('[data-test="first-name"]').fill(newUser.firstName);
-    await page.locator('[data-test="last-name"]').fill(newUser.lastName);
+    await page.locator('[data-test="first-name"]').fill(newUser.firstName!);
+    await page.locator('[data-test="last-name"]').fill(newUser.lastName!);
     await page.locator('[data-test="dob"]').fill('1990-05-15');
     await page.locator('[data-test="street"]').fill('123 Main Street');
     await page.locator('[data-test="postal_code"]').fill('12345');
@@ -17,9 +17,9 @@ test.describe('Quick Registration & Login Test', () => {
     await page.locator('[data-test="city"]').fill('New York');
     await page.locator('[data-test="state"]').fill('NY');
     await page.locator('[data-test="country"]').selectOption(['United States of America (the)']);
-    await page.locator('[data-test="phone"]').fill(newUser.phone);
-    await page.locator('[data-test="email"]').fill(newUser.email);
-    await page.locator('[data-test="password"]').fill(newUser.password);
+    await page.locator('[data-test="phone"]').fill(newUser.phone!);
+    await page.locator('[data-test="email"]').fill(newUser.email!);
+    await page.locator('[data-test="password"]').fill(newUser.password!);
 
     await page.locator('[data-test="register-submit"]').click();
 

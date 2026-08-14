@@ -1,11 +1,11 @@
 import { test as base, expect } from '@playwright/test';
 
 type User = {
-  firstName?: string;
-  lastName?: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
-  phone?: string;
+  phone: string;
 };
 
 export const test = base.extend<{

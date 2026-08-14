@@ -68,3 +68,125 @@ Make sure the following are installed:
 npm install
 npx playwright install
 ```
+
+## Running Tests
+
+Run the full suite:
+
+```bash
+npx playwright test
+```
+
+Run a single file:
+
+```bash
+npx playwright test tests/login.spec.ts
+npx playwright test tests/api.spec.ts
+npx playwright test tests/seed.spec.ts
+```
+
+Open HTML report:
+
+```bash
+npx playwright show-report
+```
+
+## Current Project Structure
+
+```txt
+fixtures/
+  test-options.ts
+pageObjects/
+  HomePage.ts
+  LoginPage.ts
+  RegisterPage.ts
+  CartPage.ts
+tests/
+  login.spec.ts
+  registration.spec.ts
+  cart.spec.ts
+  api.spec.ts
+  seed.spec.ts
+playwright.config.ts
+TEST_PLAN.md
+package.json
+```
+
+## Fixtures
+
+The project uses `fixtures/test-options.ts` to centralize reusable user test data.
+
+Included fixtures:
+
+- `validUser`
+- `invalidUser`
+- `newUser`
+
+This reduces duplication across login and registration tests and keeps test data consistent.
+
+## Page Objects
+
+The UI logic is separated into page object classes under `pageObjects/`:
+
+- `HomePage.ts` — homepage navigation and shared entry points
+- `LoginPage.ts` — login form interactions and assertions
+- `RegisterPage.ts` — registration form flow
+- `CartPage.ts` — cart-related navigation and checks
+
+This keeps the tests readable and easier to maintain.
+
+## Test Coverage
+
+### UI tests
+
+- Login with valid credentials
+- Login with invalid password
+- Registration with new user data
+- Cart page flow
+- Seed smoke test
+
+### API tests
+
+- JSONPlaceholder GET /posts/1 returns a valid JSON object
+- JSONPlaceholder GET /users returns a list of users
+- Negative API test for a missing resource returns 404
+- Compatibility check for Practice Software Testing route returning HTML instead of JSON
+
+## Seed Test
+
+The `seed.spec.ts` test acts as a smoke test to confirm that the app is reachable and the homepage loads correctly.
+
+## Notes
+
+This project is a good learning and practice setup for Playwright, but it is not yet hardened for full CI reliability. It is suitable for:
+
+- learning automation patterns
+- practicing UI and API testing
+- building structured test solutions
+
+It still needs more stability improvements for production-style CI usage, such as:
+
+- fuller retry and failure handling
+- environment-based configuration
+- cleaner selectors and more resilient assertions
+- better API validation for non-JSON endpoints
+
+## Project Status
+
+This project is suitable for:
+
+- learning Playwright
+- building practice-based automation
+- exploring browser and API testing patterns
+
+It is not yet fully ready for:
+
+- production-grade CI execution
+- stable enterprise automation pipelines
+- long-term regression use without additional hardening
+
+> In short, this is a solid learning and demonstration project, but it is not yet a fully reliable CI-ready automation suite.
+
+## License
+
+This project is intended for educational and testing purposes.

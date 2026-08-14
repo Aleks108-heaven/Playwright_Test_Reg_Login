@@ -1,5 +1,7 @@
 # Playwright Auth Practice Project
 
+This project was created with Copilot using MAI-Code-1.1-Flash.
+
 ![Playwright](https://img.shields.io/badge/Playwright-Regression%20Testing-2E6DEB?logo=playwright&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)

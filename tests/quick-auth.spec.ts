@@ -9,7 +9,9 @@ test.describe('Practice Software Testing - Quick Registration & Login', () => {
   test('Register a new user', async ({ page }) => {
     await page.goto('https://practicesoftwaretesting.com/');
 
-    await page.locator('[data-test="nav-sign-in"]').click();
+    const signInLink = page.locator('[data-test="nav-sign-in"]');
+    await expect(signInLink).toBeVisible({ timeout: 30000 });
+    await signInLink.click();
     await page.locator('[data-test="register-link"]').click();
 
     const uniqueEmail = `user${Date.now()}@example.com`;
@@ -37,7 +39,9 @@ test.describe('Practice Software Testing - Quick Registration & Login', () => {
   });
 
   test('Login with valid credentials', async ({ page }) => {
-    await page.locator('[data-test="nav-sign-in"]').click();
+    const signInLink = page.locator('[data-test="nav-sign-in"]');
+    await expect(signInLink).toBeVisible({ timeout: 30000 });
+    await signInLink.click();
 
     await page.locator('[data-test="email"]').fill('customer@practicesoftwaretesting.com');
     await page.locator('[data-test="password"]').fill('welcome01');
@@ -60,7 +64,9 @@ test.describe('Practice Software Testing - Quick Registration & Login', () => {
 
   test('Login fails with incorrect password', async ({ page }) => {
     // Navigate to login page
-    await page.locator('[data-test="nav-sign-in"]').click();
+    const signInLink = page.locator('[data-test="nav-sign-in"]');
+    await expect(signInLink).toBeVisible({ timeout: 30000 });
+    await signInLink.click();
     
     // Fill with wrong password
     await page.locator('[data-test="email"]').fill('demo@practicesoftwaretesting.com');
